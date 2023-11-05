@@ -1,3 +1,4 @@
+import React from 'react';
 import SongNewForm from '../components/SongNewForm';
 
 function New() {

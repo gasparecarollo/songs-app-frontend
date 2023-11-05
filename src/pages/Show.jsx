@@ -1,3 +1,4 @@
+import React from 'react';
 import SongDetails from '../components/SongDetails';
 
 function Show() {

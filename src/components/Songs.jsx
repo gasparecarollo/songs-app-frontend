@@ -1,7 +1,8 @@
+import React from 'react';
 import { useState, useEffect } from "react";
 import Song from "./Song";
 
-const API = import.meta.env.REACT_APP_API_URL;
+const API = import.meta.env.VITE_APP_API_URL;
 
 function Songs() {
     const [songs, setSongs] = useState([]);

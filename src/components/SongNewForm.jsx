@@ -1,8 +1,10 @@
+
+import React from 'react';
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // import favicon from "front-end/public/favicon.ico";
 
-const API = import.meta.env.REACT_APP_API_URL;
+const API = import.meta.env.VITE_APP_API_URL;
 
 function SongNewForm() {
     const navigate = useNavigate();
@@ -99,7 +101,7 @@ function SongNewForm() {
                 <label htmlFor="isFavorite"> Is favorite: </label>
                 <input
                     id="isFavorite"
-                    img src={favicon}
+                    // img src={favicon}
                     type="checkbox"
                     checked={song.isFavorite}
                     onChange={handleCheckboxChange}

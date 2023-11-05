@@ -1,5 +1,6 @@
+import React from 'react';
 import { Link } from "react-router-dom";
-import topLogo from "/"
+// import topLogo from "/"
 
 function NavBar() {
     return (
