@@ -23,7 +23,7 @@ function SongNewForm() {
             artist: song.artist,
             album: song.album,
             time: song.time,
-            isFavorite: song.isFavorite
+            is_favorite: song.isFavorite
         }
 
         try {
