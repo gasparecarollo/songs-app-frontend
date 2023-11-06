@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // import favicon from "front-end/public/favicon.ico";
 
-const API = import.meta.env.VITE_APP_API_URL;
+const API = import.meta.env.VITE_APP_API_URL
 
 function SongNewForm() {
     const navigate = useNavigate();
@@ -34,13 +34,17 @@ function SongNewForm() {
                 },
                 body: JSON.stringify(songData)
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to add song")
+                    }
+                    return response.json();
+                })
                 .then(() => navigate('/songs'))
         } catch (error) {
-            return (error)
+            console.error("Error adding the song", error)
         }
     };
-
 
     const handleTextChange = (event) => {
         setSong({ ...song, [event.target.id]: event.target.value });
@@ -53,6 +57,7 @@ function SongNewForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         addSong();
+        navigate('/songs')
     };
 
     return (
@@ -101,7 +106,6 @@ function SongNewForm() {
                 <label htmlFor="isFavorite"> Is favorite: </label>
                 <input
                     id="isFavorite"
-                    // img src={favicon}
                     type="checkbox"
                     checked={song.isFavorite}
                     onChange={handleCheckboxChange}

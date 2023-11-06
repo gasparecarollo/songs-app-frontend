@@ -10,6 +10,9 @@ function Songs() {
     useEffect(() => {
         fetch(`${API}/songs`)
             .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch songs");
+                }
                 return response.json();
             })
             .then((responseJSON) => setSongs(responseJSON))
